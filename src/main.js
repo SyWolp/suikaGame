@@ -1,6 +1,6 @@
 import { Bodies, Body, Engine, Events, Render, Runner, World } from "matter-js";
 
-import { FRUITS } from "./common/Fruits/Fruits";
+import { FRUITS } from "./common/Fruits/Fruits.js";
 
 const wrap = document.querySelector(".wrap");
 const score = document.querySelector(".score");
