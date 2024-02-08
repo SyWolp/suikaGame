@@ -6,7 +6,16 @@
     <title>game</title>
 
     <style>
+      .app {
+        display: flex;
+        gap: 100px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
       .wrap {
+        margin: 0 auto;
         width: 850px;
         height: 850px;
         position: relative;
@@ -23,15 +32,28 @@
         margin-top: 10px;
         text-align: center;
       }
+      .key {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        font-size: 20px;
+      }
     </style>
   </head>
   <body>
-    <div id="app">
+    <div class="app">
       <div class="wrap">
         <div class="abc">
           <div class="scoreTitle">점수</div>
           <div class="score">0</div>
         </div>
+      </div>
+      <div class="key">
+        <div>조작법</div>
+        <span>A 왼쪽</span>
+        <span>D 오른쪽</span>
+        <span>SpaceBar 놓기</span>
       </div>
     </div>
     <script type="module" src="/src/main.ts"></script>

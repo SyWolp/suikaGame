@@ -1,7 +1,7 @@
 export const FRUITS = [
   {
     name: "00_zero",
-    radius: 33 / 2,
+    radius: 30 / 2,
     color: "#f4f",
   },
   {
@@ -11,42 +11,42 @@ export const FRUITS = [
   },
   {
     name: "02_two",
-    radius: 61 / 2,
+    radius: 66 / 2,
     color: "#84f",
   },
   {
     name: "03_three",
-    radius: 72 / 2,
+    radius: 82 / 2,
     color: "#f66",
   },
   {
     name: "04_four",
-    radius: 89 / 2,
+    radius: 105 / 2,
     color: "#ff4",
   },
   {
     name: "05_five",
-    radius: 114 / 2,
+    radius: 134 / 2,
     color: "#aaa",
   },
   {
     name: "06_six",
-    radius: 129 / 2,
+    radius: 149 / 2,
     color: "#7d7",
   },
   {
     name: "07_seven",
-    radius: 156 / 2,
+    radius: 176 / 2,
     color: "#0a4",
   },
   {
     name: "08_eight",
-    radius: 188 / 2,
+    radius: 200 / 2,
     color: "#fff",
   },
   {
     name: "09_nine",
-    radius: 210 / 2,
+    radius: 235 / 2,
     color: "#077",
   },
 ];
