@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>game</title>
+
+    <style>
+      .wrap {
+        width: 850px;
+        height: 850px;
+        position: relative;
+      }
+      .abc {
+        position: absolute;
+        top: 50%;
+        right: 85px;
+      }
+      .scoreTitle {
+        font-size: 40px;
+      }
+      .score {
+        margin-top: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="wrap">
+        <div class="abc">
+          <div class="scoreTitle">점수</div>
+          <div class="score">0</div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
