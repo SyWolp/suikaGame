@@ -39,6 +39,18 @@
         gap: 10px;
         font-size: 20px;
       }
+      .cont {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 100px;
+        text-align: center;
+        width: 100%;
+      }
+      .btn {
+        border: 1px solid black;
+        padding: 10px;
+      }
     </style>
   </head>
   <body>
@@ -48,6 +60,11 @@
           <div class="scoreTitle">점수</div>
           <div class="score">0</div>
         </div>
+      </div>
+      <div class="cont">
+        <div class="btn leftBtn">LEFT</div>
+        <div class="btn rightBtn">RIGHT</div>
+        <div class="btn dropBtn">DROP</div>
       </div>
       <div class="key">
         <div>조작법</div>

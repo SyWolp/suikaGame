@@ -4,6 +4,11 @@ import { FRUITS } from "./common/Fruits/Fruits.js";
 
 const wrap = document.querySelector(".wrap");
 const score = document.querySelector(".score");
+
+const leftBtn = document.querySelector(".leftBtn");
+const rightBtn = document.querySelector(".rightBtn");
+const dropBtn = document.querySelector(".dropBtn");
+
 const engine = Engine.create();
 const showRender = Render.create({
   engine,
@@ -146,6 +151,61 @@ window.onkeyup = (event) => {
       break;
   }
 };
+
+//// mobile
+leftBtn.addEventListener("touchstart", () => {
+  if (currentBody === null || disableAction) return;
+  if (interval) return;
+  interval = setInterval(() => {
+    if (currentBody?.position.x - currentFruit.radius > 30) {
+      Body.setPosition(currentBody, {
+        x: currentBody.position.x - 1,
+        y: currentBody.position.y,
+      });
+    }
+  }, 5);
+});
+
+rightBtn.addEventListener("touchstart", () => {
+  if (currentBody === null || disableAction) return;
+  if (interval) return;
+
+  interval = setInterval(() => {
+    if (currentBody?.position.x + currentFruit.radius < 590) {
+      Body.setPosition(currentBody, {
+        x: currentBody.position.x + 1,
+        y: currentBody.position.y,
+      });
+    }
+  }, 5);
+});
+
+dropBtn.addEventListener("click", () => {
+  currentBody.isSleeping = false;
+  disableAction = true;
+  clearInterval(interval);
+  interval = undefined;
+  waitFruit.unshift(Math.floor(Math.random() * 5));
+
+  setTimeout(() => {
+    World.remove(world, nextBody);
+
+    addFruit();
+    disableAction = false;
+  }, 1000);
+});
+
+leftBtn.addEventListener("touchend", () => {
+  clearInterval(interval);
+  interval = undefined;
+});
+
+rightBtn.addEventListener("touchend", () => {
+  clearInterval(interval);
+  interval = undefined;
+});
+
+//// mobile
 
 Events.on(engine, "collisionStart", (event) => {
   console.log([...event.pairs]);
