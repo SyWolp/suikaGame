@@ -7,7 +7,7 @@ const score = document.querySelector(".score");
 const engine = Engine.create();
 const showRender = Render.create({
   engine,
-  element: wrap as HTMLElement,
+  element: wrap,
   options: {
     wireframes: false,
     background: "#f7f4c8",
@@ -17,7 +17,7 @@ const showRender = Render.create({
 });
 
 const world = engine.world;
-const waitFruit: number[] = [
+const waitFruit = [
   Math.floor(Math.random() * 5),
   Math.floor(Math.random() * 5),
 ];
@@ -57,17 +57,17 @@ World.add(world, [leftWall, RightWall, floor, finishLine, showWaitFruitBox]);
 
 Render.run(showRender);
 Runner.run(engine);
-let currentBody: any = null;
-let currentFruit: any = null;
-let nextBody: any = null;
+let currentBody = null;
+let currentFruit = null;
+let nextBody = null;
 let disableAction = false;
-let interval: number | undefined = undefined;
+let interval = undefined;
 
 const addFruit = () => {
-  const index = waitFruit.pop() as number;
+  const index = waitFruit.pop();
   const fruit = FRUITS[index];
 
-  const body: Body = Bodies.circle(300, 50, fruit.radius, {
+  const body = Bodies.circle(300, 50, fruit.radius, {
     restitution: 0.2,
     isSleeping: true,
     index: index,
@@ -93,13 +93,13 @@ const addFruit = () => {
   World.add(world, [body, nextBody]);
 };
 
-window.onkeydown = (event: KeyboardEvent) => {
+window.onkeydown = (event) => {
   if (currentBody === null || disableAction) return;
   switch (event.code) {
     case "KeyA":
       if (interval) return;
       interval = setInterval(() => {
-        if ((currentBody?.position.x as number) - currentFruit.radius > 30) {
+        if (currentBody?.position.x - currentFruit.radius > 30) {
           Body.setPosition(currentBody, {
             x: currentBody.position.x - 1,
             y: currentBody.position.y,
@@ -112,7 +112,7 @@ window.onkeydown = (event: KeyboardEvent) => {
       if (interval) return;
 
       interval = setInterval(() => {
-        if ((currentBody?.position.x as number) + currentFruit.radius < 590) {
+        if (currentBody?.position.x + currentFruit.radius < 590) {
           Body.setPosition(currentBody, {
             x: currentBody.position.x + 1,
             y: currentBody.position.y,
@@ -137,7 +137,7 @@ window.onkeydown = (event: KeyboardEvent) => {
   }
 };
 
-window.onkeyup = (event: KeyboardEvent) => {
+window.onkeyup = (event) => {
   switch (event.code) {
     case "KeyA":
     case "KeyD":
@@ -149,7 +149,7 @@ window.onkeyup = (event: KeyboardEvent) => {
 
 Events.on(engine, "collisionStart", (event) => {
   console.log([...event.pairs]);
-  event.pairs.forEach((collision: any) => {
+  event.pairs.forEach((collision) => {
     if (collision.bodyA.index === collision.bodyB.index) {
       const index = collision.bodyA.index;
 
