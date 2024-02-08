@@ -8,7 +8,13 @@ const score = document.querySelector(".score");
 const leftBtn = document.querySelector(".leftBtn");
 const rightBtn = document.querySelector(".rightBtn");
 const dropBtn = document.querySelector(".dropBtn");
+const mobile = document.querySelector(".cont");
 
+console.log(window);
+
+if (window.outerWidth > 1023) {
+  mobile.style.display = "none";
+}
 const engine = Engine.create();
 const showRender = Render.create({
   engine,
